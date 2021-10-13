@@ -20,7 +20,7 @@ hs_err_pid*
 # intellij
 /.idea/
 /spring.iml
-build2/
+build/
 
 # eclipse project folder
 .metadata/
