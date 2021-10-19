@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html lang="ko"
-      xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
-      layout:decorator="layout">
+<html
+  lang="ko"
+  xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
+  layout:decorator="layout"
+>
 
-    <main layout:fragment="content">
-      <table class="buyer_list">
-        <thead>
-          <tr class="title_tr">
-            <th>고객ID</th>
-            <th>이름</th>
-            <th>전화번호</th>
-            <th>주소</th>
-            <th>담당자명</th>
-            <th>담당자연락처</th>
-            <th>매출액합계(만원)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr th:each="USER : ${USERS}" data-id="${USER.userid}">
-            <!-- th:text 값이 없으면 태그안의 값이 나타난다 -->
-            <td th:text="${USER.userid}">userid</td>
-            <td th:text="${USER.name}">name</td>
-            <td th:text="${USER.tel}">tel</td>
-            <td th:text="${USER.address}">address</td>
-            <td th:text="${USER.manager}">manager</td>
-            <td th:text="${USER.manager_tel}">manager_tel</td>
-            <td th:text="${USER.buy_total}">buy_total</td>
-          </tr>
-        </tbody>
-      </table>
-    </main>
+  <main layout:fragment="content">
+    <table class="buyer_list">
+      <thead>
+        <tr class="title_tr">
+          <th>고객ID</th>
+          <th>이름</th>
+          <th>전화번호</th>
+          <th>주소</th>
+          <th>담당자명</th>
+          <th>담당자연락처</th>
+          <th>매출액합계(만원)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="USER : ${USERS}" th:data-id="${USER.userid}">
+          <!-- th:text 값이 없으면 태그안의 값이 나타난다 -->
+          <td th:text="${USER.userid}">userid</td>
+          <td th:text="${USER.name}">name</td>
+          <td th:text="${USER.tel}">tel</td>
+          <td th:text="${USER.address}">address</td>
+          <td th:text="${USER.manager}">manager</td>
+          <td th:text="${USER.manager_tel}">manager_tel</td>
+          <td th:text="${USER.buy_total}">buy_total</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
 </html>

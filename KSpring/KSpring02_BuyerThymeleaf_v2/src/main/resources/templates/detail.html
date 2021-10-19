@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+        lang="ko"
+        xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
+        layout:decorator="layout"
+>
+
+<main layout:fragment="content">
+    <div class="buyer_container">
+        <div class="buyer_info">
+            <div>
+                <label>ID</label>
+                <span th:text="${USER.userid}">20210001</span>
+            </div>
+            <div>
+                <label>전화번호</label>
+                <span th:text="${USER.tel}">02-222-9988</span>
+            </div>
+            <div>
+                <label>이름</label>
+                <span th:text="${USER.name}">롯데상사</span>
+            </div>
+            <div>
+                <label>주소</label>
+                <span th:text="${USER.address}">서울시 영등포구</span>
+            </div>
+        </div>
+        <div class="btn_box">
+            <button class="btn_update">고객정보 수정</button>
+            <button class="btn_delete">고객정보 삭제</button>
+        </div>
+    </div>
+    <table>
+        <thead>
+        <tr class="title_tr">
+            <th>No.</th>
+            <th>상품명</th>
+            <th>단가</th>
+            <th>수량</th>
+            <th>금액</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>아이폰13</td>
+            <td>1,200,000</td>
+            <td>10</td>
+            <td>12,000,000</td>
+        </tr>
+        <tr>
+            <td>합계</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td>12,000,000</td>
+        </tr>
+        </tbody>
+
+    </table>
+</main>
+</body>
+</html>

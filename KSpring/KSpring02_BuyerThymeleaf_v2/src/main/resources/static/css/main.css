@@ -95,3 +95,64 @@ footer {
     padding-bottom: 1rem;
     color: #fff;
 }
+
+.buyer_container {
+    width: 100%;
+    margin: 20px auto;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buyer_info {
+    width : 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem
+}
+
+.buyer_info div {
+    display:flex;
+    width: 50%;
+    border: 1px solid #333;
+}
+
+.buyer_info div label, .buyer_info div span {
+    display: inline-block;
+    padding: 0.3rem;
+}
+
+.buyer_info div label {
+    width: 30%;
+    background-color: #1f2739;
+    color: #4dc3fa;
+}
+
+.buyer_info div span {
+    width: 70%
+
+}
+
+
+.btn_box {
+    width: 30%;
+    display:flex;
+    margin-right: 1rem;
+}
+
+.btn_box button {
+    width: 50%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #fff;
+    background: #4dc3fa;
+}
+
+

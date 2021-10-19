@@ -61,4 +61,11 @@ class HomeController {
     fun list():Array<Buyer> {
         return bService.selectAll()
     }
+
+    @RequestMapping(value = ["/detail"],method = [RequestMethod.GET])
+    fun detail(model:Model,userid:String):String {
+
+        model["USER"] = bService.findById(userid);
+        return "detail"
+    }
 }
