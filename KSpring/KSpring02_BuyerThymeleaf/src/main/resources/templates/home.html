@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<th:block th:replace="fragment/headerAndFooter :: headFragment"/>
+  <body>
+  <th:block th:replace="fragment/headerAndFooter :: headerFragment"/>
+  <th:block th:replace="fragment/headerAndFooter :: navFragment"/>
+
+    <main>
+      <table class="buyer_list">
+        <thead>
+          <tr class="title_tr">
+            <th>고객ID</th>
+            <th>이름</th>
+            <th>전화번호</th>
+            <th>주소</th>
+            <th>담당자명</th>
+            <th>담당자연락처</th>
+            <th>매출액합계(만원)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>B001</td>
+            <td>롯데상사</td>
+            <td>02-222-2222</td>
+            <td>서울시 영등포구</td>
+            <td>홍길동</td>
+            <td>010-111-1111</td>
+            <td>91,000</td>
+          </tr>
+          <tr>
+            <td>B002</td>
+            <td>해태상사</td>
+            <td>02-333-2222</td>
+            <td>광주시 북구</td>
+            <td>이몽룡</td>
+            <td>010-222-1111</td>
+            <td>2,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  <th:block th:replace="fragment/headerAndFooter :: footerFragment"/>
+  </body>
+</html>
