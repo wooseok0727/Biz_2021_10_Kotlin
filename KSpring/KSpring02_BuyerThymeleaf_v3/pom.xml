@@ -17,7 +17,6 @@
 		<java.version>15</java.version>
 		<kotlin.version>1.5.31</kotlin.version>
 		<maven.plugin.version>2.5.5</maven.plugin.version>
-		<kotlin.plugin.version>1.5.10</kotlin.plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -97,13 +96,14 @@
 					</args>
 					<compilerPlugins>
 						<plugin>spring</plugin>
+						<plugin>jpa</plugin>
 					</compilerPlugins>
 				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>org.jetbrains.kotlin</groupId>
 						<artifactId>kotlin-maven-allopen</artifactId>
-						<version>${kotlin.plugin.version}</version>
+						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>

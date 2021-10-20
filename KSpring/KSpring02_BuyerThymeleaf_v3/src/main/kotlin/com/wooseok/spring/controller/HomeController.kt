@@ -3,6 +3,7 @@ package com.wooseok.spring.controller
 import com.wooseok.spring.ConfigString
 import com.wooseok.spring.models.Buyer
 import com.wooseok.spring.service.BuyerService
+import com.wooseok.spring.service.impl.BuyerServiceImplV1
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -66,7 +67,17 @@ class HomeController {
     @RequestMapping(value = ["/detail"],method = [RequestMethod.GET])
     fun detail(model:Model,@RequestParam("userid") userid:String):String {
 
-        model["USER"] = bService.findById(userid);
+        model["USER"] = bService.findById(userid)
         return "detail"
+    }
+
+    @ResponseBody
+    @RequestMapping(value = ["/insert"],method = [RequestMethod.GET])
+    fun insert(): Buyer {
+
+        val insertBuyer = BuyerServiceImplV1.BUYER_LIST[0]
+        bService.insert(insertBuyer)
+
+        return insertBuyer
     }
 }
