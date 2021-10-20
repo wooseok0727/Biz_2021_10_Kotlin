@@ -2,7 +2,7 @@
 <html
         lang="ko"
         xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
-        layout:decorator="layout"
+        layout:decorator="@{/layout}"
 >
 
 <main layout:fragment="content">
@@ -10,19 +10,19 @@
         <div class="buyer_info">
             <div>
                 <label>ID</label>
-                <span th:text="${USER.userid}">20210001</span>
+                <span th:text="${BUYER.userid}">20210001</span>
             </div>
             <div>
                 <label>전화번호</label>
-                <span th:text="${USER.tel}">02-222-9988</span>
+                <span th:text="${BUYER.tel}">02-222-9988</span>
             </div>
             <div>
                 <label>이름</label>
-                <span th:text="${USER.name}">롯데상사</span>
+                <span th:text="${BUYER.name}">롯데상사</span>
             </div>
             <div>
                 <label>주소</label>
-                <span th:text="${USER.address}">서울시 영등포구</span>
+                <span th:text="${BUYER.address}">서울시 영등포구</span>
             </div>
         </div>
         <div class="btn_box">

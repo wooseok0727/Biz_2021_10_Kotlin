@@ -1,6 +1,6 @@
 package com.wooseok.spring.controller
 
-import com.wooseok.spring.ConfigString
+import com.wooseok.spring.ConfigData
 import com.wooseok.spring.models.Buyer
 import com.wooseok.spring.service.BuyerService
 import com.wooseok.spring.service.impl.BuyerServiceImplV1
@@ -43,14 +43,14 @@ class HomeController {
     @RequestMapping(value = ["/"],method = [RequestMethod.GET])
     fun home(model:Model):String {
 
-        println(ConfigString.APP_NAME)
-        println(ConfigString.APP_VERSION)
+        println(ConfigData.APP_NAME)
+        println(ConfigData.APP_VERSION)
 
-        val userList = bService.selectAll()
+        // val userList = bService.selectAll()
         // model.addAttribute("USERS",userList)
-        model["USERS"] = userList
+        // model["USERS"] = userList
 
-        return "home"
+        return "redirect:/buyer/list"
     }
 
     /**
@@ -64,20 +64,5 @@ class HomeController {
         return bService.selectAll()
     }
 
-    @RequestMapping(value = ["/detail"],method = [RequestMethod.GET])
-    fun detail(model:Model,@RequestParam("userid") userid:String):String {
 
-        model["USER"] = bService.findById(userid)
-        return "detail"
-    }
-
-    @ResponseBody
-    @RequestMapping(value = ["/insert"],method = [RequestMethod.GET])
-    fun insert(): Buyer {
-
-        val insertBuyer = BuyerServiceImplV1.BUYER_LIST[0]
-        bService.insert(insertBuyer)
-
-        return insertBuyer
-    }
 }

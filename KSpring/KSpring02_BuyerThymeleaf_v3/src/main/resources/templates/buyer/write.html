@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html
+        lang="ko"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
+        layout:decorator="@{/layout}"
+>
+
+<main layout:fragment="content">
+    <div class="write_container" method="post">
+        <form class="write_form">
+            <input
+                    type="text"
+                    name="userid"
+                    placeholder="고객ID"
+                    autocomplete="off"
+
+            />
+            <input
+                    type="text"
+                    name="name"
+                    placeholder="이름"
+                    autocomplete="off"
+            />
+            <input
+                    type="text"
+                    name="tel"
+                    placeholder="전화번호"
+                    autocomplete="off"
+            />
+            <input
+                    type="text"
+                    name="address"
+                    placeholder="주소"
+                    autocomplete="off"
+            />
+            <input
+                    type="text"
+                    name="manager"
+                    placeholder="담당자명"
+                    autocomplete="off"
+            />
+            <input
+                    type="text"
+                    name="manager_tel"
+                    placeholder="담당자연락처"
+                    autocomplete="off"
+            />
+        </form>
+        <div class="btn_box">
+            <button class="btn_insert">저장</button>
+            <button class="btn_home">홈으로</button>
+        </div>
+    </div>
+
+</main>

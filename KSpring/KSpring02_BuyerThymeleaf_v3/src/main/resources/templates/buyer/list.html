@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html
   lang="ko"
+  xmlns:th = "http://www.thymeleaf.org"
   xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
   layout:decorator="@{/layout}"
 >
@@ -19,15 +20,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr th:each="USER : ${USERS}" th:data-id="${USER.userid}">
+        <tr th:each="BUYER : ${BUYERS}" th:data-id="${BUYER.userid}">
           <!-- th:text 값이 없으면 태그안의 값이 나타난다 -->
-          <td th:text="${USER.userid}">userid</td>
-          <td th:text="${USER.name}">name</td>
-          <td th:text="${USER.tel}">tel</td>
-          <td th:text="${USER.address}">address</td>
-          <td th:text="${USER.manager}">manager</td>
-          <td th:text="${USER.manager_tel}">manager_tel</td>
-          <td th:text="${USER.buy_total}">buy_total</td>
+          <td th:text="${BUYER.userid}">userid</td>
+          <td th:text="${BUYER.name}">name</td>
+          <td th:text="${BUYER.tel}">tel</td>
+          <td th:text="${BUYER.address}">address</td>
+          <td th:text="${BUYER.manager}">manager</td>
+          <td th:text="${BUYER.manager_tel}">manager_tel</td>
+          <td th:text="${BUYER.buy_total}">buy_total</td>
         </tr>
       </tbody>
     </table>

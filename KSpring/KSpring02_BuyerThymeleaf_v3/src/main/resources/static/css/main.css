@@ -34,7 +34,7 @@ ul.main_menu {
 
 ul.main_menu li {
     display: inline-block;
-    color: inherit;
+    color: #4dc3fa;
     padding: 0.7rem;
     text-decoration: none;
     margin-left: 20px;
@@ -88,13 +88,17 @@ table td {
 
 table tr.title_tr {
     background-color: #1f2739;
-    color: #4dc3fa;
+    color: #fb667a;
 }
 
 footer {
     padding-bottom: 1rem;
     color: #fff;
 }
+
+/*
+    detail.html
+*/
 
 .buyer_container {
     width: 100%;
@@ -133,9 +137,7 @@ footer {
 
 .buyer_info div span {
     width: 70%
-
 }
-
 
 .btn_box {
     width: 30%;
@@ -151,8 +153,16 @@ footer {
     margin: 0.2rem;
     cursor: pointer;
     border-radius: 8px;
+    background-color: #4dc3fa;
     color: #fff;
-    background: #4dc3fa;
+
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn_box button:hover {
+    color: #fb667a;
+    background: #fff842;
 }
 
 
