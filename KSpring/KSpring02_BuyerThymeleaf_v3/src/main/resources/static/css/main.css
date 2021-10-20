@@ -165,4 +165,16 @@ footer {
     background: #fff842;
 }
 
+.btn_box2 {
+    padding: 0.5rem;
+    margin-right: 0;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.btn_box2 button {
+    width : 40%;
+    padding: 0.7rem;
+}
+
 

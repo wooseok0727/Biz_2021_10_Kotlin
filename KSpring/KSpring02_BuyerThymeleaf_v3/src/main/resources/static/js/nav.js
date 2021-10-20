@@ -1,5 +1,18 @@
 $(function() {
 
+//    $("li.login").on("click",function() {
+//       location.href = "/login"
+//    })
+//    $("li.order").on("click",function() {
+//        location.href = "/order"
+//    })
+//    $("li.pay").on("click",function() {
+//        location.href = "/pay"
+//    })
+//    $("li.home").on("click",function() {
+//        location.href = "/"
+//    })
+
     $("nav li").on("click",function() {
 
         // this : vanilla js 에서 e.currentTarget
@@ -14,13 +27,23 @@ $(function() {
             데이터들을 JSON 객체로 만들고
             JSON.stringify() 문자열로 바꿔서 alert() 에 표시
         */
-        const tagInfo = {
-            className,
-            tagId,
-            tagName,
-            text
+//        const tagInfo = {
+//            className,
+//            tagId,
+//            tagName,
+//            text
+//        }
+//        alert(JSON.stringify(tagInfo))
+
+        let href = "/"
+        if (text === "주문관리") {
+            href += "order"
+        } else if (text === "결제관리") {
+            href += "pay"
+        } else if (text === "로그인") {
+            href += "login"
         }
-        alert(JSON.stringify(tagInfo))
+        location.href = `${href}`
     })
 
 })
