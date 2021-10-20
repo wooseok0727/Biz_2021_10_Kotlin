@@ -112,7 +112,7 @@ footer {
 }
 
 .buyer_info {
-    width : 70%;
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     margin: 1rem
@@ -173,7 +173,7 @@ footer {
 }
 
 .btn_box2 button {
-    width : 40%;
+    width: 40%;
     padding: 0.7rem;
 }
 
