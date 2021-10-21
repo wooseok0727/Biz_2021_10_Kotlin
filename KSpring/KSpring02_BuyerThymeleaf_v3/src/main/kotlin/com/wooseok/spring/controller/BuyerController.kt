@@ -3,18 +3,25 @@ package com.wooseok.spring.controller
 import com.wooseok.spring.ConfigData
 import com.wooseok.spring.models.Buyer
 import com.wooseok.spring.service.BuyerService
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.servlet.ModelAndView
+import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @Controller
 @RequestMapping(value = ["/buyer"])
 class BuyerController(val bService:BuyerService) {
 
+    private val logger = LoggerFactory.getLogger(BuyerController::class.java)
+
     // @GetMapping(name = "/list")
     @RequestMapping(value = ["/list"],method = [RequestMethod.GET])
     fun list(model: Model): String {
+        
+        logger.debug("여기는 list 함수")
 
         val buyerList = bService.selectAll()
         model["BUYERS"] = buyerList;
@@ -74,6 +81,45 @@ class BuyerController(val bService:BuyerService) {
         model["BUYER"] = buyer
 
         return "buyer/write"
+    }
 
+    /**
+     * update 를 실행할 때
+     *  localhost:8080/buyer/update/userid 값으로 URL 이 구성되어 있고
+     *  update 화면에서 저장을 누르면 
+     *  원래 요청했던 주소가 action 이 되어 요청되므로
+     *  여기에서는 userid 가 필요없지만
+     *  PathVariable 로 설정해 주어야 한다
+     */
+    @RequestMapping(value = ["/update/{userid}"],method = [RequestMethod.POST])
+    fun update(model: Model,redirectAttributes: RedirectAttributes, buyer: Buyer,@PathVariable("userid") userid: String): String {
+
+        bService.update(buyer)
+
+        /**
+         * Spring MVC 에서는 model 에 변수를 담으면
+         * redirect 를 할 때 model 담긴 변수를
+         * queryString 으로 부착하여 전송을 한다
+         *
+         * 이 기능이 boot 에서는 막아져있고
+         * 같은 기능을 구현하기 위하여
+         * model 대신 RedirectAttributes 를 사용한다.
+         */
+
+        // localhost:8080/buyer/detail?userid=?? 형식으로
+        // redirect 주소가 만들어진다
+           redirectAttributes["userid"] = buyer.userid.toString()
+        // redirectAttributes 를 사용하지 않으면 다음처럼 작성해야 한다.
+        // return "redirect:/buyer/detail?userid=" + buyer.userid.toString()
+
+        // model.addAttribute("userid",buyer.userid.toString())
+        return "redirect:/buyer/detail"
+    }
+
+    @RequestMapping(value = ["/delete/{userid}"],method = [RequestMethod.GET])
+    fun delete(@PathVariable("userid") userid: String): String {
+
+        bService.delete(userid)
+        return "redirect:/buyer/list"
     }
 }

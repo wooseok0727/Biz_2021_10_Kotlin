@@ -8,7 +8,10 @@ $(function() {
                 // alert(`Update ${userid}`)
                 href = `${href}/update/${userid}`
             } else if(className.includes("btn_delete")) {
-                href = `${href}/delete/${userid}`
+            href = `${href}/delete/${userid}`
+                if(!confirm("삭제할까요?")) {
+                   return false;
+                }
             }
             location.href = `${href}`
         })
