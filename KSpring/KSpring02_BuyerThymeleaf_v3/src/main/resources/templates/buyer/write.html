@@ -8,47 +8,42 @@
 
 <main layout:fragment="content">
     <div class="write_container">
-        <form class="write_form" method="post">
+        <h2>고객 정보 등록</h2>
+        <form class="write_form" method="post" th:object="${BUYER}">
             <input
-                    type="text"
-                    name="userid"
+                    th:field="*{userid}"
                     placeholder="고객ID"
                     autocomplete="off"
             />
             <input
-                    type="text"
-                    name="name"
+                    th:field="*{name}"
                     placeholder="이름"
                     autocomplete="off"
             />
             <input
-                    type="text"
-                    name="tel"
+                    th:field="*{tel}"
                     placeholder="전화번호"
                     autocomplete="off"
             />
             <input
-                    type="text"
-                    name="address"
+                    th:field="*{address}"
                     placeholder="주소"
                     autocomplete="off"
             />
             <input
-                    type="text"
-                    name="manager"
+                    th:field="*{manager}"
                     placeholder="담당자명"
                     autocomplete="off"
             />
             <input
-                    type="text"
-                    name="manager_tel"
+                    th:field="*{manager_tel}"
                     placeholder="담당자연락처"
                     autocomplete="off"
             />
         </form>
         <div class="btn_box">
-            <button class="btn_insert">저장</button>
-            <button class="btn_home">홈으로</button>
+            <button class="btn_save">저장</button>
+            <button class="btn_list">리스트로</button>
         </div>
     </div>
 

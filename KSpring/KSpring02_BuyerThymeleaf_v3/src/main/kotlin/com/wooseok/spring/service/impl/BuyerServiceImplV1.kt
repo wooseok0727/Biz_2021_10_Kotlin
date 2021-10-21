@@ -22,13 +22,14 @@ class BuyerServiceImplV1(val bRepo:BuyerRepository) : BuyerService {
 
     override fun selectAll(): Array<Buyer> {
 
-        return ConfigData.BUYER_LIST
+        return bRepo.findAll().toTypedArray()
     }
 
     override fun findById(userid: String): Buyer {
 
-        val findUser = ConfigData.BUYER_LIST.filter { it.userid == userid }
-        return findUser[0]
+//        val findUser = ConfigData.BUYER_LIST.filter { it.userid == userid }
+//        return findUser[0]
+        return bRepo.getById(userid)
     }
 
     override fun findByName(name: String): Array<Buyer> {
