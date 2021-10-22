@@ -22,12 +22,10 @@ class BuyerServiceImplV1(val bRepo:BuyerRepository) : BuyerService {
 //    private lateinit var bDao : BuyerRepository
 
     override fun selectAll(): Array<Buyer> {
-
         return bRepo.findAll().toTypedArray()
     }
 
     override fun findById(userid: String): Buyer {
-
         // repository 의 findById() 는
         // 실제 데이터(Buyer)를 Optional 이라는 특별한 객체로
         // wrapping 하여 가져온다
@@ -39,28 +37,23 @@ class BuyerServiceImplV1(val bRepo:BuyerRepository) : BuyerService {
     }
 
     override fun findByName(name: String): Array<Buyer> {
-
         return bRepo.findByName(name)
     }
 
     override fun findByTel(tel: String): Array<Buyer> {
-
         return bRepo.findByTel(tel)
     }
 
     override fun insert(buyer: Buyer): Buyer {
-
         // Insert Or Update
         return bRepo.save(buyer);
     }
 
     override fun delete(userid: String) {
-
         bRepo.deleteById(userid)
     }
 
     override fun update(buyer: Buyer): Buyer {
-
         return bRepo.save(buyer)
     }
 

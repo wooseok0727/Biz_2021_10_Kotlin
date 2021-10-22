@@ -25,6 +25,7 @@ data class Sales(
     @Column(columnDefinition = "BIGINT")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var seq: Long? = null,
+    val userid: String? = null,
     var date: String? = null,
     var time: String? = null,
     var pname: String? = null,
@@ -33,13 +34,15 @@ data class Sales(
     var total : Int? = null,
 
     // 데이터에 특별하게 Date(날짜, 시간형) 값을 사용하고 싶을 때
-
+    @Transient // table 생성할때 칼럼을 추가하지 말라!!
     @Temporal(TemporalType.DATE)
     var date1 : Date? = null,
 
+    @Transient
     @Temporal(TemporalType.TIME)
     var time1 : Date? = null,
 
+    @Transient
     @Temporal(TemporalType.TIMESTAMP)
     var date_time : Date? = null
 

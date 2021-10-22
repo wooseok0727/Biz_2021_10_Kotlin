@@ -75,6 +75,7 @@ table {
     font-size: 0.9rem;
     font-weight: bold;
     table-layout: fixed;
+    transition: 0.3s;
 }
 
 table th,
@@ -89,6 +90,10 @@ table td {
 table tr.title_tr {
     background-color: #1f2739;
     color: #fb667a;
+}
+
+table tr:nth-of-type(n+1):hover {
+    background-color: #1f2739;
 }
 
 footer {

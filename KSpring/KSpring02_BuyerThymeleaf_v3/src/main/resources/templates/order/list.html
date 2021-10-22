@@ -11,7 +11,6 @@
         <tr class="title_tr">
             <th>SEQ</th>
             <th>고객 ID</th>
-            <th>거래일시</th>
             <th>상품명</th>
             <th>단가</th>
             <th>수량</th>
@@ -19,16 +18,23 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>seq</td>
-            <td>userid</td>
-            <td>date</td>
-            <td>pname</td>
-            <td>price</td>
-            <td>qty</td>
-            <td>total</td>
+        <tr th:each="SALE : ${SALES}" th:data-id="${SALE.seq}">
+            <td th:text="${SALE.seq}">>seq</td>
+            <td th:text="${SALE.userid}">userid</td>
+            <td th:text="${SALE.pname}">pname</td>
+            <td th:text="${SALE.amt}">amt</td>
+            <td th:text="${SALE.qty}">qty</td>
+            <td th:text="${SALE.total}">total</td>
         </tr>
         </tbody>
     </table>
+    <div class="btn_box btn_box2"><button class="btn_insert">주문 등록</button></div>
+    <script>
+      $(function() {
+        $("button.btn_insert").on("click",function() {
+          location.href = "/order/insert"
+        })
+      })
+    </script>
 </main>
 </html>
