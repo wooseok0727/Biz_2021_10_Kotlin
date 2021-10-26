@@ -30,7 +30,7 @@ class SalesDataInit(val salesDao:SalesRepository) {
     @Bean
     fun dataInit():CommandLineRunner {
 
-        for(num in 1..10) {
+        for(num in 1..100) {
             salesDataInit()
         }
 
@@ -38,7 +38,7 @@ class SalesDataInit(val salesDao:SalesRepository) {
     }
 
     private fun salesDataInit() {
-        val userid = String.format("B%03d",ConfigData.RND.nextInt(10) + 1)
+        val userid = String.format("B%03d",ConfigData.RND.nextInt(100) + 1)
         val pname = pnames[ConfigData.RND.nextInt(pnames.size)]
 
         val qty = ConfigData.RND.nextInt(10) + 10 * 10

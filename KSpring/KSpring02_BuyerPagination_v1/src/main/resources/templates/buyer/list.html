@@ -33,6 +33,9 @@
         </tr>
       </tbody>
     </table>
+
+    <th:block th:replace="~{/fragment/page_nav :: pageNav(${BUYERS})}"></th:block>
+
     <div class="nextPage">더 보기</div>
     <div class="btn_box btn_box2"><button class="btn_insert">고객 등록</button></div>
     <script>
@@ -51,6 +54,15 @@
             alert("끝페이지")
             return false;
           }
+
+          /**
+           * project 에 context-path 가 설정되어 있을때는
+           * ${rootPath}/buyer/sub_page 와 같이 사용해도 문제가 없다
+           *
+           * context-path 가 설정이 되어 있지 않을 때는
+           * ${rootPath}buyer/sub_page 또는 rootPath 빼기
+           *
+           */
           // jQuery.ajax
           $.ajax({
               url: `${rootPath}buyer/sub_page`,

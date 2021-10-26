@@ -3,6 +3,8 @@ package com.wooseok.spring.service.impl
 import com.wooseok.spring.models.Sales
 import com.wooseok.spring.repository.SalesRepository
 import com.wooseok.spring.service.OrderService
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 // Repo = Dao
@@ -11,6 +13,10 @@ class OrderServiceImplV1(val sRepo:SalesRepository):OrderService {
 
     override fun selectAll(): Array<Sales> {
         return sRepo.findAll().toTypedArray()
+    }
+
+    override fun selectAll(pageable: Pageable): Page<Sales> {
+        return sRepo.findAll(pageable)
     }
 
     override fun findById(seq: Long): Sales {

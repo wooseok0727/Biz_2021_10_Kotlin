@@ -1,0 +1,9 @@
+<tr th:each="SALE : ${SALES}" th:data-id="${SALE.seq}">
+    <td th:text="${SALE.seq}">>seq</td>
+    <td th:text="${SALE.userid}">userid</td>
+    <td th:text="${SALE.pname}">pname</td>
+    <td th:text="${SALE.amt}">amt</td>
+    <td th:text="${SALE.qty}">qty</td>
+    <td th:text="${SALE.total}">total</td>
+</tr>
+

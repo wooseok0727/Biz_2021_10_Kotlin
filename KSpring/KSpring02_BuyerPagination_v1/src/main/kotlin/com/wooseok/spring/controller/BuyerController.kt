@@ -7,6 +7,8 @@ import com.wooseok.spring.service.BuyerService
 import org.slf4j.LoggerFactory
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Sort
+import org.springframework.data.web.PageableDefault
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
@@ -48,7 +50,7 @@ class BuyerController(val bService:BuyerService) {
      */
     // @GetMapping(name = "/list")
     @RequestMapping(value = ["/list"],method = [RequestMethod.GET])
-    fun list(model: Model, pageable: Pageable): String {
+    fun list(model: Model,@PageableDefault(sort = ["userid"], direction = Sort.Direction.DESC) pageable: Pageable): String {
         
         logger().debug("여기는 list 함수")
         logger().debug("Pagealbe : {}",pageable.toString())
@@ -65,7 +67,6 @@ class BuyerController(val bService:BuyerService) {
         val buyerList = bService.selectAll(pageable)
         model["BUYERS"] = buyerList;
         return "buyer/sub_page"
-
     }
 
     @RequestMapping(value = ["/list/{page}"], method = [RequestMethod.GET])

@@ -32,8 +32,21 @@
     <div class="btn_box btn_box2"><button class="btn_insert">주문 등록</button></div>
     <script>
       $(function() {
+        let currentPage = 0;
+
         $("button.btn_insert").on("click",function() {
           location.href = "/order/insert"
+        })
+
+        $("div.nextPage").on("click",function (){
+            $.ajax({
+                url:`${rootPath}order/sub_page`,
+                data: {page: ++currentPage},
+                method: "GET"
+            })
+            .done(function (result) {
+                $("table.order_list tbody").append(result)
+            })
         })
       })
     </script>
