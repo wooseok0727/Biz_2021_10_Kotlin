@@ -1,0 +1,7 @@
+# com.wooseok.spring.student-file=student.txt
+com:
+  wooseok:
+    spring:
+      student-file: "student.txt"
+      app-name: "first Spring Boot"
+      app-version: "1.0"

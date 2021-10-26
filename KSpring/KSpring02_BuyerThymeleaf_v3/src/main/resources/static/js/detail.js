@@ -3,7 +3,7 @@ $(function() {
     if(button) {
         $(button).on("click",function() {
             const className = $(this).attr("class")
-            let href = `${rootPath}buyer`
+            let href = `${rootPath}/buyer`
             if(className.includes("btn_update")) {
                 // alert(`Update ${userid}`)
                 href = `${href}/update/${userid}`

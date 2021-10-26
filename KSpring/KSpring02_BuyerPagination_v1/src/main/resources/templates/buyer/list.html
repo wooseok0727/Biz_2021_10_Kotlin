@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th = "http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
+  layout:decorator="~{/layout}"
+>
+
+  <main layout:fragment="content">
+
+    <table class="buyer_list">
+      <thead>
+        <tr class="title_tr">
+          <th>고객ID</th>
+          <th>이름</th>
+          <th>전화번호</th>
+          <th>주소</th>
+          <th>담당자명</th>
+          <th>담당자연락처</th>
+          <th>매출액합계(만원)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="BUYER : ${BUYERS}" th:data-id="${BUYER.userid}">
+          <!-- th:text 값이 없으면 태그안의 값이 나타난다 -->
+          <td th:text="${BUYER.userid}">userid</td>
+          <td th:text="${BUYER.name}">name</td>
+          <td th:text="${BUYER.tel}">tel</td>
+          <td th:text="${BUYER.address}">address</td>
+          <td th:text="${BUYER.manager}">manager</td>
+          <td th:text="${BUYER.manager_tel}">manager_tel</td>
+          <td th:text="${BUYER.buy_total}">buy_total</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="nextPage">더 보기</div>
+    <div class="btn_box btn_box2"><button class="btn_insert">고객 등록</button></div>
+    <script>
+      $(function() {
+
+        let currentPage = 0;
+        let lastPage = false
+
+        $("button.btn_insert").on("click",function() {
+          location.href = `${rootPath}buyer/insert`
+        })
+
+        $("div.nextPage").on("click",function () {
+
+          if(lastPage) {
+            alert("끝페이지")
+            return false;
+          }
+          // jQuery.ajax
+          $.ajax({
+              url: `${rootPath}buyer/sub_page`,
+              data : {page: ++currentPage},
+              method: "GET"
+          })
+          .done(function (result) {
+            // lastPage = result.last
+            $("table.buyer_list tbody").append(result)
+          })
+        })
+      })
+    </script>
+  </main>
+
+</html>

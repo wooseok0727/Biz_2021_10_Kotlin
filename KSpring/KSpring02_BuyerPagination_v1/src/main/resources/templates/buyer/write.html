@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html
+        lang="ko"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
+        layout:decorator="~{/layout}"
+>
+
+<main layout:fragment="content">
+    <div class="write_container">
+        <h2>고객 정보 등록</h2>
+        <form class="write_form" method="post" th:object="${BUYER}">
+            <input
+                    th:field="*{userid}"
+                    placeholder="고객ID"
+                    autocomplete="off"
+                    readonly
+            />
+            <input
+                    th:field="*{name}"
+                    placeholder="이름"
+                    autocomplete="off"
+            />
+            <input
+                    th:field="*{tel}"
+                    placeholder="전화번호"
+                    autocomplete="off"
+            />
+            <input
+                    th:field="*{address}"
+                    placeholder="주소"
+                    autocomplete="off"
+            />
+            <input
+                    th:field="*{manager}"
+                    placeholder="담당자명"
+                    autocomplete="off"
+            />
+            <input
+                    th:field="*{manager_tel}"
+                    placeholder="담당자연락처"
+                    autocomplete="off"
+            />
+        </form>
+        <div class="btn_box">
+            <button class="btn_save">저장</button>
+            <button class="btn_list">리스트로</button>
+        </div>
+    </div>
+
+</main>
