@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html
+        lang="ko"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultrq.net.nz/thymeleaf/layout"
+        layout:decorator="~{/layout}"
+>
+
+<main layout:fragment="content">
+    <div class="write_container">
+        <h2>ADD & READ BOOK</h2>
+        <form class="write_form" method="post">
+            <div>
+                <input
+                        th:field="*{BOOK.ISBN}"
+                        name="ISBN"
+                        placeholder="ISBN"
+                        autocomplete="off"
+                />
+                <input
+                        th:field="*{BOOK.title}"
+                        name="title"
+                        placeholder="도서명"
+                        autocomplete="off"
+                />
+            </div>
+            <div>
+                <input
+                        th:field="*{BOOK.comp}"
+                        name="comp"
+                        placeholder="출판사"
+                        autocomplete="off"
+                />
+                <input
+                        th:field="*{BOOK.author}"
+                        name="author"
+                        placeholder="저자"
+                        autocomplete="off"
+                />
+                <input
+                        th:field="*{BOOK.price}"
+                        name="price"
+                        placeholder="가격"
+                        autocomplete="off"
+                />
+            </div>
+            <div>
+                <input
+                        th:field="*{READBOOK.rdate}"
+                        name="rdate"
+                        placeholder="읽은날짜"
+                        autocomplete="off"
+                />
+                <input
+                        th:field="*{READBOOK.stime}"
+                        name="stime"
+                        placeholder="읽기시작시간"
+                        autocomplete="off"
+                />
+                <input
+                        th:field="*{READBOOK.etime}"
+                        name="etime"
+                        placeholder="읽기종료시간"
+                        autocomplete="off"
+                />
+            </div>
+            <div>
+                <input
+                        th:field="*{READBOOK.rating}"
+                        name="rating"
+                        placeholder="만족도"
+                        autocomplete="off"
+                />
+            </div>
+            <div>
+                <input
+                        th:field="*{READBOOK.comment}"
+                        name="comment"
+                        placeholder="내용을 입력해주세요"
+                        autocomplete="off"
+                />
+            </div>
+        </form>
+        <div class="btn_box">
+            <button class="btn_save">저장</button>
+            <button class="btn_reset">초기화</button>
+            <button class="btn_list">리스트로</button>
+        </div>
+    </div>
+
+</main>

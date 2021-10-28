@@ -1,0 +1,33 @@
+## Context Path
+#server:
+#  servlet:
+#    context-path: /erp
+
+# classpath
+spring:
+  config:
+    # Optional<List<String>> config = new Optional<>();
+    # config.add("classpath:application-jap.yml")
+    # config.add("classpath:application-dbms.yml")
+    import: >
+      optional:classpath:application-dbms.yml,
+      classpath:application-logger.yml,
+      classpath:application-jpa.yml,
+  mvc:
+    static-path-pattern: /static/**
+  web:
+    resources:
+      static-locations: classpath:static/
+      add-mappings: true
+
+  # pageable
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+
+  # logger Setting
+  output:
+    ansi:
+      enabled: ALWAYS
+

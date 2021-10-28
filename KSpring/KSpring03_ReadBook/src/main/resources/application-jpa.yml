@@ -1,0 +1,20 @@
+# JPA Setting
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+    database: mysql
+    database-platform: "org.hibernate.dialect.MySQL8Dialect"
+
+    # SQL logger
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+        # bulk data insert or update Batch Process Enable
+        jdbc:
+          batch_size: 50
+        order_insert: true
+        order_update: true

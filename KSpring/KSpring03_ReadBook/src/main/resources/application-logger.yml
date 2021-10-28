@@ -1,0 +1,9 @@
+# logger settings
+logging:
+  level:
+    root: info
+    com.wooseok.readbook: debug
+#      config: debug
+#      controller: debug
+#      service: debug
+#      repository: debug

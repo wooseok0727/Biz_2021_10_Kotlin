@@ -1,0 +1,52 @@
+.btn_box {
+    width: 30%;
+    display:flex;
+    margin-right: 1rem;
+}
+
+.btn_box button {
+    width: 50%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #4dc3fa;
+    color: #fff;
+
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn_box button:hover {
+    color: #fb667a;
+    background: #fff842;
+}
+
+.btn_box2 {
+    padding: 0.5rem;
+    margin-right: 0;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.btn_box2 button {
+    width: 40%;
+    padding: 0.7rem;
+}
+
+div.write_container .btn_box {
+    width: 80%;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: flex-end;
+}
+
+div.write_container .btn_box button {
+    width: 20%;
+    font-size: 1rem;
+    padding: 0.7rem;
+}
