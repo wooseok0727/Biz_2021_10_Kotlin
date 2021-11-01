@@ -13,7 +13,7 @@ class WebMVCReqController:WebMvcConfigurer {
     override fun addViewControllers(registry: ViewControllerRegistry) {
 
         registry
-            .addViewController("/member/mypage")
-            .setViewName("member/mypage")
+            .addViewController("/member/view")
+            .setViewName("member/view")
     }
 }
